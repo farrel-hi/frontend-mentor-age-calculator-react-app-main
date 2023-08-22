@@ -1,0 +1,11 @@
+/* Mobile Rules */
+.mainContainer{
+    width: 90%;
+    min-height: 50%;
+
+    border-radius: 20px 20px 100px 20px;
+    background-color:hsl(0, 0%, 100%);
+
+    position:relative;
+    top:-10%;
+}
