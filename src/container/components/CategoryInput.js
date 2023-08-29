@@ -4,7 +4,7 @@ function CategoryInput(props){
     return(
         <div className="input-container">
             <p>{props.date}</p>
-            <input type='text'></input>
+            <input type='text' className="input-field" placeholder={props.placeholder}></input>
             <p id="warning-desc">{props.warning}</p>
         </div>
     )
