@@ -1,5 +1,7 @@
-#warning-desc{
-    display: none;
+#warning-desc {
+    color: #FFFFFF;
+    font-style: italic;
+    font-size: 10px;
 }
 
 input[type=text] {
@@ -13,14 +15,16 @@ input[type=text] {
     font-size: 20px;
 }
 
-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: hsl(0, 1%, 44%);
     font-size: 20px;
     font-weight: bold;
-    opacity: 1; /* Firefox */
-  }
+    opacity: 1;
+    /* Firefox */
+}
 
-p{
+p {
     color: hsl(0, 1%, 44%);
     font-size: 14px;
 }
@@ -29,10 +33,19 @@ p{
     input[type=text] {
         font-size: 30px;
     }
-    input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    #warning-desc {
+        color: #FFFFFF;
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
         font-size: 30px;
     }
-    p{
+
+    p {
         color: hsl(0, 1%, 44%);
         font-size: 20px;
     }
