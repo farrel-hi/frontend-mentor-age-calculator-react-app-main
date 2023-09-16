@@ -2,24 +2,29 @@ import React, { useState } from "react";
 
 import "./CategoryInput.css"
 
-function CategoryInput(props) {
+function CategoryInput(props,{onQuery}) {
     const [value, setValue] = useState('');
     const [pickColor, setPickColor] = useState('#FFFFFF');
+    const [day, setDay] = useState(0);
+    const [month, setMonth] = useState(0);
+    const [year, setYear] = useState(0);
 
     function checkValidDate(dateValue) {
         if (props.date === 'DAY') {
             if (dateValue < 1 || dateValue > 31) {
-                console.log('koko');
+                setDay(dateValue);
                 setPickColor("#FF0000");
             }
         }
         else if (props.date === 'MONTH') {
             if (dateValue < 1 || dateValue > 12) {
+                setMonth(dateValue);
                 setPickColor("#FF0000");
             }
         }
         else if (props.date === 'YEAR') {
             if (dateValue < 1900 || dateValue > 2023) {
+                setYear(dateValue);
                 setPickColor("#FF0000");
             }
         }

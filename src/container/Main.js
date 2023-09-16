@@ -1,7 +1,8 @@
+import React, {useState} from "react";
 import "./Main.css";
-import convertImage from "../assets/images/icon-arrow.svg"
 import CategoryInput from "./components/CategoryInput";
 import CategoryOutput from "./components/CategoryOutput";
+import DividerButton from "./components/DividerButton";
 
 function Main() {
     const dates = [
@@ -29,10 +30,7 @@ function Main() {
                 <CategoryInput date={dates[1].date} warning={dates[1].warning} placeholder={dates[1].placeholder} />
                 <CategoryInput date={dates[2].date} warning={dates[2].warning} placeholder={dates[2].placeholder} />
             </article>
-            <div className="divider">
-                <hr></hr>
-                <img src={convertImage} alt="convert-button-image" />
-            </div>
+            <DividerButton />
             <article>
                 <CategoryOutput date={dates[2].date} />
                 <CategoryOutput date={dates[1].date} />

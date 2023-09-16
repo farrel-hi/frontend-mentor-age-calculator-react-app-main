@@ -1,0 +1,29 @@
+/* Mobile Rules */
+img {
+  padding: 20px;
+
+  height: 25px;
+  width: auto;
+
+  border-radius: 50%;
+
+  position: relative;
+  left: 40%;
+  top: -35px;
+
+  background-color: hsl(259, 100%, 65%);
+}
+
+.divider {
+  margin: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  img {
+      height: 40px;
+      width: auto;
+
+      left: 90%;
+      top: -40px;
+  }
+}
