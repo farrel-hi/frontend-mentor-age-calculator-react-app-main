@@ -2,32 +2,44 @@ import React, { useState } from "react";
 
 import "./CategoryInput.css"
 
-function CategoryInput(props,{onQuery}) {
+function CategoryInput(props) {
     const [value, setValue] = useState('');
     const [pickColor, setPickColor] = useState('#FFFFFF');
-    const [day, setDay] = useState(0);
-    const [month, setMonth] = useState(0);
-    const [year, setYear] = useState(0);
+
+    function addDateValue(addValue) {
+        const transferData = {
+            value: addValue,
+            type: props.date
+        }
+        props.onDataInput(transferData)
+    }
 
     function checkValidDate(dateValue) {
         if (props.date === 'DAY') {
             if (dateValue < 1 || dateValue > 31) {
-                setDay(dateValue);
                 setPickColor("#FF0000");
+            }
+            else {
+                addDateValue(dateValue);
             }
         }
         else if (props.date === 'MONTH') {
             if (dateValue < 1 || dateValue > 12) {
-                setMonth(dateValue);
                 setPickColor("#FF0000");
+            }
+            else {
+                addDateValue(dateValue);
             }
         }
         else if (props.date === 'YEAR') {
             if (dateValue < 1900 || dateValue > 2023) {
-                setYear(dateValue);
                 setPickColor("#FF0000");
             }
+            else {
+                addDateValue(dateValue);
+            }
         }
+        console.log(value);
     }
 
     function checkInputType(checkValue) {
@@ -48,11 +60,17 @@ function CategoryInput(props,{onQuery}) {
     }
 
     return (
-        <div className="input-container">
+        <form className="input-container">
             <p>{props.date}</p>
-            <input type='text' className="input-field" placeholder={props.placeholder} value={value} onChange={changeHandler}></input>
+            <input
+                type='text'
+                className="input-field"
+                placeholder={props.placeholder}
+                value={value}
+                onChange={changeHandler}
+            />
             <p id="warning-desc" style={{ color: pickColor }}>{props.warning}</p>
-        </div>
+        </form>
     )
 }
 
