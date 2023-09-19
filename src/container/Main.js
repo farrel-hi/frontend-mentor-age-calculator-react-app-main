@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import convertImage from "../assets/images/icon-arrow.svg"
 import "./Main.css";
 import CategoryInput from "./components/CategoryInput";
 import CategoryOutput from "./components/CategoryOutput";
-import DividerButton from "./components/DividerButton";
+// import DividerButton from "./components/DividerButton";
 
 function Main() {
     const dates = [
@@ -26,20 +27,30 @@ function Main() {
         }
     ]
 
-    const addDataInput = date =>{
+    const addDataInput = date => {
         console.log('In Main.js');
         console.log(date.value);
         console.log(date.type);
-        if(date.type === "DAY"){
+        if (date.type === "DAY") {
             dates[0].value = date.value;
         }
-        else if(date.type === "MONTH"){
+        else if (date.type === "MONTH") {
             dates[1].value = date.value;
         }
-        else if(date.type === "YEAR"){
+        else if (date.type === "YEAR") {
             dates[2].value = date.value;
         }
         console.log(dates);
+    }
+
+    const calculateAge = ()=>{
+        console.log("---------------Click----------------");
+        console.log(dates[0].value);
+        console.log(dates[1].value);
+        console.log(dates[2].value);
+
+        const currentDate = new Date();
+        console.log(currentDate);
     }
 
     return (
@@ -49,7 +60,11 @@ function Main() {
                 <CategoryInput onDataInput={addDataInput} date={dates[1].date} warning={dates[1].warning} placeholder={dates[1].placeholder} />
                 <CategoryInput onDataInput={addDataInput} date={dates[2].date} warning={dates[2].warning} placeholder={dates[2].placeholder} />
             </article>
-            <DividerButton />
+            <div className="divider">
+                <hr></hr>
+                <img src={convertImage} alt="convert-button-image" onClick={calculateAge} />
+            </div>
+            {/* <DividerButton /> */}
             <article>
                 <CategoryOutput date={dates[2].date} />
                 <CategoryOutput date={dates[1].date} />
