@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Main.css";
+import convertImage from "../assets/images/icon-arrow.svg"
 import CategoryInput from "./components/CategoryInput";
 import CategoryOutput from "./components/CategoryOutput";
-import DividerButton from "./components/DividerButton";
+// import DividerButton from "./components/DividerButton";
 
 function Main() {
     const dates = [
@@ -26,20 +27,43 @@ function Main() {
         }
     ]
 
-    const addDataInput = date =>{
+    const addDataInput = date => {
         console.log('In Main.js');
         console.log(date.value);
         console.log(date.type);
-        if(date.type === "DAY"){
+        if (date.type === "DAY") {
             dates[0].value = date.value;
         }
-        else if(date.type === "MONTH"){
+        else if (date.type === "MONTH") {
             dates[1].value = date.value;
         }
-        else if(date.type === "YEAR"){
+        else if (date.type === "YEAR") {
             dates[2].value = date.value;
         }
         console.log(dates);
+    }
+
+    const calculateAge = () => {
+        const acquireDateStr = dates[2].value + "-" + dates[1].value + "-" + dates[0].value;
+        const acquireDate = new Date(acquireDateStr);
+
+        //Calculate the number of years since 1970/01/01:
+        const minute = 1000 * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+        // const year = day * 365;
+
+        // let years = Math.round(Date.now() / year);    
+        let days = Math.round(Date.now() / day);
+        let userAgeDays = Math.round(acquireDate.getTime()/day);
+
+        let totalDaysSinceBirth = days-userAgeDays;
+        let yearOld = totalDaysSinceBirth/365;
+        let monthOld = (totalDaysSinceBirth%365)/30;
+        let dayOld = (totalDaysSinceBirth%365)%30;
+        console.log(Math.trunc(yearOld));
+        console.log(Math.trunc(monthOld));
+        console.log(Math.trunc(dayOld));
     }
 
     return (
@@ -49,7 +73,11 @@ function Main() {
                 <CategoryInput onDataInput={addDataInput} date={dates[1].date} warning={dates[1].warning} placeholder={dates[1].placeholder} />
                 <CategoryInput onDataInput={addDataInput} date={dates[2].date} warning={dates[2].warning} placeholder={dates[2].placeholder} />
             </article>
-            <DividerButton />
+            <div className="divider">
+                <hr></hr>
+                <img src={convertImage} alt="convert-button-image" onClick={calculateAge} />
+            </div>
+            {/* <DividerButton /> */}
             <article>
                 <CategoryOutput date={dates[2].date} />
                 <CategoryOutput date={dates[1].date} />
