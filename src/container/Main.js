@@ -3,30 +3,30 @@ import "./Main.css";
 import convertImage from "../assets/images/icon-arrow.svg"
 import CategoryInput from "./components/CategoryInput";
 import CategoryOutput from "./components/CategoryOutput";
-// import DividerButton from "./components/DividerButton";
 
 function Main() {
+    const [ageDay,setAgeDay] = useState(0);
+    const [ageMonth,setAgeMonth] = useState(0);
+    const [ageYear,setAgeYear] = useState(0);
+
     const dates = [
         {
             date: "DAY",
             warning: "Must be a valid day",
             placeholder: "DD",
-            value: 0,
-            age: 0
+            value: 0
         },
         {
             date: "MONTH",
             warning: "Must be a valid month",
             placeholder: "MM",
-            value: 0,
-            age: 0
+            value: 0
         },
         {
             date: "YEAR",
             warning: "Must be in the past",
             placeholder: "YYYY",
-            value: 0,
-            age: 0
+            value: 0
         }
     ]
 
@@ -50,25 +50,24 @@ function Main() {
         const minute = 1000 * 60;
         const hour = minute * 60;
         const day = hour * 24;
-        // const year = day * 365;
 
-        // let years = Math.round(Date.now() / year);    
+        //Calculate how many days since 1-1-1970 till current time
         let days = Math.round(Date.now() / day);
+        //Calculate how many days since 1-1-1970 till the users birth date
         let userAgeDays = Math.round(acquireDate.getTime()/day);
 
+        //Get the total of days since birth date till current time + calculate the year, month, and day
         let totalDaysSinceBirth = days-userAgeDays;
         let yearOld = totalDaysSinceBirth/365;
         let monthOld = (totalDaysSinceBirth%365)/30;
         let dayOld = (totalDaysSinceBirth%365)%30;
-        // console.log(Math.trunc(yearOld));
-        // console.log(Math.trunc(monthOld));
-        // console.log(Math.trunc(dayOld));
-        dates[0].age = Math.trunc(dayOld);
-        dates[1].age = Math.trunc(monthOld);
-        dates[2].age = Math.trunc(yearOld);
-        console.log(dates[0]);
-        console.log(dates[1]);
-        console.log(dates[2]);
+        
+        setAgeDay(Math.trunc(dayOld));
+        setAgeMonth(Math.trunc(monthOld));
+        setAgeYear(Math.trunc(yearOld))
+        console.log(ageDay);
+        console.log(ageMonth);
+        console.log(ageYear);
     }
 
     return (
@@ -82,11 +81,10 @@ function Main() {
                 <hr></hr>
                 <img src={convertImage} alt="convert-button-image" onClick={calculateAge} />
             </div>
-            {/* <DividerButton /> */}
             <article>
-                <CategoryOutput date={dates[2].date} age={dates[2].age} />
-                <CategoryOutput date={dates[1].date} age={dates[1].age} />
-                <CategoryOutput date={dates[0].date} age={dates[0].age}/>
+                <CategoryOutput date={dates[2].date} age={ageYear} />
+                <CategoryOutput date={dates[1].date} age={ageMonth} />
+                <CategoryOutput date={dates[0].date} age={ageDay}/>
             </article>
         </div>
     )
