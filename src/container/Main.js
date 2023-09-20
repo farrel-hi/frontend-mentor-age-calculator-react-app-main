@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import convertImage from "../assets/images/icon-arrow.svg"
 import "./Main.css";
+import convertImage from "../assets/images/icon-arrow.svg"
 import CategoryInput from "./components/CategoryInput";
 import CategoryOutput from "./components/CategoryOutput";
 // import DividerButton from "./components/DividerButton";
@@ -43,14 +43,27 @@ function Main() {
         console.log(dates);
     }
 
-    const calculateAge = ()=>{
-        console.log("---------------Click----------------");
-        console.log(dates[0].value);
-        console.log(dates[1].value);
-        console.log(dates[2].value);
+    const calculateAge = () => {
+        const acquireDateStr = dates[2].value + "-" + dates[1].value + "-" + dates[0].value;
+        const acquireDate = new Date(acquireDateStr);
 
-        const currentDate = new Date();
-        console.log(currentDate);
+        //Calculate the number of years since 1970/01/01:
+        const minute = 1000 * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+        // const year = day * 365;
+
+        // let years = Math.round(Date.now() / year);    
+        let days = Math.round(Date.now() / day);
+        let userAgeDays = Math.round(acquireDate.getTime()/day);
+
+        let totalDaysSinceBirth = days-userAgeDays;
+        let yearOld = totalDaysSinceBirth/365;
+        let monthOld = (totalDaysSinceBirth%365)/30;
+        let dayOld = (totalDaysSinceBirth%365)%30;
+        console.log(Math.trunc(yearOld));
+        console.log(Math.trunc(monthOld));
+        console.log(Math.trunc(dayOld));
     }
 
     return (

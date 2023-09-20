@@ -46,14 +46,14 @@ img {
     margin: 0;
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1020px) {
     .mainContainer {
         padding: 50px 2vw 50px 2vw;
 
         width: 40vw;
 
         position: absolute;
-        top: 10%;
+        top:10%;
     }
 
     img {
