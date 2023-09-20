@@ -39,7 +39,6 @@ function CategoryInput(props) {
                 addDateValue(dateValue);
             }
         }
-        console.log(value);
     }
 
     function checkInputType(checkValue) {

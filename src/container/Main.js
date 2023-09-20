@@ -11,26 +11,26 @@ function Main() {
             date: "DAY",
             warning: "Must be a valid day",
             placeholder: "DD",
-            value: 0
+            value: 0,
+            age: 0
         },
         {
             date: "MONTH",
             warning: "Must be a valid month",
             placeholder: "MM",
-            value: 0
+            value: 0,
+            age: 0
         },
         {
             date: "YEAR",
             warning: "Must be in the past",
             placeholder: "YYYY",
-            value: 0
+            value: 0,
+            age: 0
         }
     ]
 
     const addDataInput = date => {
-        console.log('In Main.js');
-        console.log(date.value);
-        console.log(date.type);
         if (date.type === "DAY") {
             dates[0].value = date.value;
         }
@@ -40,7 +40,6 @@ function Main() {
         else if (date.type === "YEAR") {
             dates[2].value = date.value;
         }
-        console.log(dates);
     }
 
     const calculateAge = () => {
@@ -61,9 +60,15 @@ function Main() {
         let yearOld = totalDaysSinceBirth/365;
         let monthOld = (totalDaysSinceBirth%365)/30;
         let dayOld = (totalDaysSinceBirth%365)%30;
-        console.log(Math.trunc(yearOld));
-        console.log(Math.trunc(monthOld));
-        console.log(Math.trunc(dayOld));
+        // console.log(Math.trunc(yearOld));
+        // console.log(Math.trunc(monthOld));
+        // console.log(Math.trunc(dayOld));
+        dates[0].age = Math.trunc(dayOld);
+        dates[1].age = Math.trunc(monthOld);
+        dates[2].age = Math.trunc(yearOld);
+        console.log(dates[0]);
+        console.log(dates[1]);
+        console.log(dates[2]);
     }
 
     return (
@@ -79,9 +84,9 @@ function Main() {
             </div>
             {/* <DividerButton /> */}
             <article>
-                <CategoryOutput date={dates[2].date} />
-                <CategoryOutput date={dates[1].date} />
-                <CategoryOutput date={dates[0].date} />
+                <CategoryOutput date={dates[2].date} age={dates[2].age} />
+                <CategoryOutput date={dates[1].date} age={dates[1].age} />
+                <CategoryOutput date={dates[0].date} age={dates[0].age}/>
             </article>
         </div>
     )
