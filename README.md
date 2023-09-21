@@ -54,6 +54,7 @@ Here are the things that i learn:
 1. Practices my React skills
 2. Practices transfering data from one component to another
 3. Practices on using Date methods
+4. Learn how to deploy React App to Github Pages
 
 ### Continued development
 
