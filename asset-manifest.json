@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/frontend-mentor-age-calculator-react-app-main/static/css/main.72428304.css",
+    "main.js": "/frontend-mentor-age-calculator-react-app-main/static/js/main.c60809f2.js",
+    "static/js/787.e95ca66d.chunk.js": "/frontend-mentor-age-calculator-react-app-main/static/js/787.e95ca66d.chunk.js",
+    "index.html": "/frontend-mentor-age-calculator-react-app-main/index.html",
+    "static/media/icon-arrow.svg": "/frontend-mentor-age-calculator-react-app-main/static/media/icon-arrow.76e952b1b427b84b83bd01f2f4822499.svg",
+    "main.72428304.css.map": "/frontend-mentor-age-calculator-react-app-main/static/css/main.72428304.css.map",
+    "main.c60809f2.js.map": "/frontend-mentor-age-calculator-react-app-main/static/js/main.c60809f2.js.map",
+    "787.e95ca66d.chunk.js.map": "/frontend-mentor-age-calculator-react-app-main/static/js/787.e95ca66d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.72428304.css",
+    "static/js/main.c60809f2.js"
+  ]
+}
