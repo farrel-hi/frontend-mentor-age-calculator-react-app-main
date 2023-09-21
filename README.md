@@ -32,8 +32,8 @@ Mobile Screenshot:
 
 ### Links
 
-- Solution URL: [GitHub Solution URL here](https://github.com/farrel-hi/frontend-mentor-advice-generator-app-main)
-- Live Site URL: [Live site URL here](https://farrel-hi.github.io/frontend-mentor-advice-generator-app-main/)
+- Solution URL: [GitHub Solution URL here](https://github.com/farrel-hi/frontend-mentor-age-calculator-react-app-main)
+- Live Site URL: [Live site URL here](https://farrel-hi.github.io/frontend-mentor-age-calculator-react-app-main/)
 
 ## My process
 1. Create Main component that would store all necessary components
